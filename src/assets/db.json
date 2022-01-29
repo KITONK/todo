@@ -1,0 +1,9 @@
+{
+    "lists": [
+        {"id": 1, "name": "Today"},
+        {"id": 2, "name": "Inbox"},
+        {"id": 3, "name": "Website Redesign"},
+        {"id": 4, "name": "Shopping List"},
+        {"id": 5, "name": "Travel"}
+    ]
+}
