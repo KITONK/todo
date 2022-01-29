@@ -19,6 +19,12 @@ function App() {
     })
   );
 
+  const [listsconstant, setListsConstant] = useState(
+    DB.listsconstant.map(item => {
+      return item;
+    })
+  );
+
   const onAddList = (obj) => {
     const newList = [...lists, obj];
     setLists(newList);
@@ -40,7 +46,7 @@ function App() {
           </li>
         </ul>
         <input className="todo__search" placeholder="Search..."/>
-          <List items={[
+          {/* <List items={[
             {
               icon: <img src={calendar} width="20" height="20" alt="calendar"/>,
               name: 'Today',
@@ -52,9 +58,16 @@ function App() {
             },
           ]}
             isRemovable={true}
+          /> */}
+          <List
+            items={listsconstant}
+            onRemove={list => {
+              console.log(list);
+            }}
+            isRemovable
           />
         <hr style={{marginTop: "15px", marginBottom: "15px"}}/>
-        <List items={[
+        {/* <List items={[
             {
               icon: <img src={monitor} width="20" height="20" alt="calendar"/>,
               name: 'Website Redesign'
@@ -67,7 +80,7 @@ function App() {
               icon: <img src={travel} width="20" height="20" alt="calendar"/>,
               name: 'Travel'
             },
-          ]}/>
+          ]}/> */}
           <List
             items={lists}
             onRemove={list => {
