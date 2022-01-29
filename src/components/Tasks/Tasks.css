@@ -1,0 +1,91 @@
+.tasks {
+    
+}
+
+.more {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+.more__circle {
+  width: 4px;
+  height: 4px;
+  border-radius: 20px;
+  background-color: black;
+  margin: 2px 0;
+}
+
+.tasks>.todo__title>h2 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tasks>.todo__title>h2>div>img, .tasks>.todo__title>h2>div>.more {
+    opacity: 0.5;
+    cursor: pointer;
+}
+.tasks>.todo__title>h2>div>img:hover, .tasks>.todo__title>h2>div>.more:hover {
+    opacity: 0.8;
+}
+
+.tasks__items {
+    margin-top: 30px;
+    background-color: #fff;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.tasks__items-row {
+    display: flex;
+    align-items: center;
+}
+
+.tasks__items-row>input {
+    margin-left: 15px;
+    border: 0;
+    font-size: 16px;
+    width: 100%;
+}
+
+.checkbox>input:checked + label {
+    background-color: rgb(78, 78, 78);
+    border-color: rgb(78, 78, 78);
+}
+
+.checkbox>input:checked + label > img {
+    opacity: 1;
+}
+
+.checkbox>label:hover>img {
+    opacity: 1;
+}
+
+.checkbox>label:hover {
+    background-color: #f2f2f2;
+    border-color: #f2f2f2;
+}
+
+.checkbox>label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #e8e8e8;
+    border-radius: 30px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.checkbox>label>img {
+    opacity: 0;
+}
+
+.checkbox>input {
+    display: none;
+}
+
+.checkbox>img {
+    transition: opacity 0.15s ease-in-out;
+}

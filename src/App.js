@@ -10,6 +10,7 @@ import travel from './assets/img/suitcase.png';
 import AddButtonList from './components/AddButtonList';
 
 import DB from './assets/db.json';
+import Tasks from './components/Tasks';
 
 function App() {
 
@@ -90,8 +91,8 @@ function App() {
           />
           <AddButtonList onAdd={onAddList} />
       </div>
-      <div className="todo_tasks">
-        
+      <div className="todo__tasks">
+        <Tasks/>
       </div>
     </div>
   );

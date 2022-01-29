@@ -5,6 +5,7 @@
     cursor: pointer;
     padding: 10px 12px;
     margin-bottom: 5px;
+    transition: background-color 0.15s ease-in-out;
   }
 
   .list>li>span {
@@ -28,6 +29,7 @@
 
   .list__remove-icon {
     opacity: 0;
+    transition: opacity 0.15s ease-in-out;
   }
 
   li>.list__remove-icon:hover:hover {
