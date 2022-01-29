@@ -66,3 +66,16 @@
   margin: 3px 0;
   transition: 0.4s;
 }
+
+.field {
+  background: #ffffff;
+  border: 1px solid #efefef;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 8px 12px;
+  width: 100%;
+}
+
+.field:focus {
+  border-color: #dbdbdb;
+}
