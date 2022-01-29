@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, {useState} from 'react';
 import weather from './assets/img/cloudy.png';
 import List from './components/List';
 import calendar from './assets/img/calendar.png';
@@ -9,7 +9,21 @@ import shop from './assets/img/shopping-cart.png';
 import travel from './assets/img/suitcase.png';
 import AddButtonList from './components/AddButtonList';
 
+import DB from './assets/db.json';
+
 function App() {
+
+  const [lists, setLists] = useState(
+    DB.lists.map(item => {
+      return item;
+    })
+  );
+
+  const onAddList = (obj) => {
+    const newList = [...lists, obj];
+    setLists(newList);
+  };
+
   return (
     <div className="todo">
       <div className="todo__sidebar">
@@ -54,7 +68,14 @@ function App() {
               name: 'Travel'
             },
           ]}/>
-          <AddButtonList />
+          <List
+            items={lists}
+            onRemove={list => {
+              console.log(list);
+            }}
+            isRemovable
+          />
+          <AddButtonList onAdd={onAddList} />
       </div>
       <div className="todo_tasks">
         

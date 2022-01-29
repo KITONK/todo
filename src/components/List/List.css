@@ -6,14 +6,34 @@
     padding: 10px 12px;
     margin-bottom: 5px;
   }
+
+  .list>li>span {
+    flex: 1;
+  }
   
   .list>li>i {
     display: flex;
     margin-right: 15px;
   }
+
+  .list>li:hover {
+      background-color: rgb(238, 238, 238, 0.5);
+  }
   
   .list>li.active {
-      background-color: lightgray;
+      background-color: #eeeeee;
       box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.04);
       border-radius: 4px;
+  }
+
+  .list__remove-icon {
+    opacity: 0;
+  }
+
+  li>.list__remove-icon:hover:hover {
+    opacity: 0.8;
+  }
+
+  li:hover>.list__remove-icon {
+    opacity: 0.2;
   }
