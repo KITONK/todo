@@ -54,7 +54,7 @@ function App() {
               name: 'Travel'
             },
           ]}/>
-          <AddButtonList/>
+          <AddButtonList />
       </div>
       <div className="todo_tasks">
         
