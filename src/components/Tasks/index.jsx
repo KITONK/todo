@@ -4,12 +4,12 @@ import check from '../../assets/img/check.png';
 
 import './Tasks.css';
 
-const Tasks = () => {
+const Tasks = ({list}) => {
     return (
         <div className="tasks">
           <div className="todo__title">
               <h2>
-                  Website Redesign
+                  {list.name}
                   <div>
                     <img src={alarm} width="20" height="20" alt="notification"/>
                         <div className="more">
@@ -21,15 +21,17 @@ const Tasks = () => {
               </h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing<br/> elit, aliquam.</p>
               <div className="tasks__items">
-                  <div className="tasks__items-row">
-                    <div className="checkbox">
-                            <input id="check" type="checkbox" />
-                            <label htmlFor="check">
-                                <img src={check} width="10" height="10" alt='check'/>
-                            </label>
+                  {list.tasks.map(task =>
+                        <div key={task.id} className="tasks__items-row">
+                        <div className="checkbox">
+                                <input id={`task-${task.id}`} type="checkbox" />
+                                <label htmlFor={`task-${task.id}`}>
+                                    <img src={check} width="10" height="10" alt='check'/>
+                                </label>
+                        </div>
+                        <input readOnly value={task.text}/>
                     </div>
-                    <input value="Update About Page Header"/>
-                  </div>
+                    )}
               </div>
           </div>
         </div>

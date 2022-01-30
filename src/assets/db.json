@@ -1,12 +1,75 @@
 {
-    "listsconstant": [
-        {"id": 1, "name": "Today"},
-        {"id": 2, "name": "Inbox"}
-    ],
-    
-    "lists": [
-        {"id": 3, "name": "Website Redesign"},
-        {"id": 4, "name": "Shopping List"},
-        {"id": 5, "name": "Travel"}
-    ]
+  "listsconstant": [
+    {
+      "id": 1,
+      "name": "Today"
+    },
+    {
+      "id": 2,
+      "name": "Inbox"
+    }
+  ],
+  "lists": [
+    {
+      "id": 3,
+      "name": "Website Redesign"
+    },
+    {
+      "id": 4,
+      "name": "Shopping List"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "listId": 3,
+      "text": "Update About Page Header",
+      "completed": false
+    },
+    {
+      "id": 2,
+      "listId": 3,
+      "text": "About Page Wordings",
+      "completed": false
+    },
+    {
+      "id": 3,
+      "listId": 3,
+      "text": "New landing page layout",
+      "completed": true
+    },
+    {
+      "id": 4,
+      "listId": 3,
+      "text": "Update global iconset",
+      "completed": false
+    },
+    {
+      "id": 5,
+      "listId": 3,
+      "text": "New landline (inkl + 49) number in global footers & navi",
+      "completed": false
+    },
+    {
+      "id": 6,
+      "listId": 3,
+      "text": "New case study thumbnails",
+      "completed": false
+    },
+    {
+      "id": 7,
+      "listId": 4,
+      "text": "Apples"
+    },
+    {
+      "id": 8,
+      "listId": 4,
+      "text": "Bananas"
+    },
+    {
+      "id": 9,
+      "listId": 4,
+      "text": "Oranges"
+    }
+  ]
 }
