@@ -9,6 +9,7 @@
 .todo{
   position: relative;
   left: 0;
+  display: flex;
 }
 
 .todo__sidebar {
@@ -52,6 +53,13 @@
     background: transparent;
     border: 1px solid lightgray;
     cursor: pointer;
+}
+
+.todo__tasks {
+  flex: 1;
+  padding: 60px;
+  background-color: #eeeeee;
+  height: 100%;
 }
 
 .menu {
