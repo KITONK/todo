@@ -8,6 +8,8 @@ import {List, AddButtonList, Tasks} from './components';
 function App() {
   const [lists, setLists] = useState(null);
   const [listsconstant, setListsConstant] = useState(null);
+  const [activeItem, setActiveItem] = useState(null);
+  
 
   useEffect(() => {
     axios.get('http://localhost:3001/listsconstant?_embed=tasks').then(({data}) => {
@@ -22,6 +24,16 @@ function App() {
     const newList = [...lists, obj];
     setLists(newList);
   };
+
+  const onEditListTitle = (id, title) => {
+    const newList = lists.map(item => {
+      if(item.id === id) {
+        item.name = title;
+      }
+      return item;
+    });
+    setLists(newList);
+  }
 
   return (
     <div className="todo">
@@ -41,6 +53,10 @@ function App() {
         <input className="todo__search" placeholder="Search..."/>
           <List
             items={listsconstant}
+            onClickItem={item => {
+              setActiveItem(item);
+            }}
+            activeItem={activeItem}
           />
         <hr style={{marginTop: "15px", marginBottom: "15px"}}/>
           {lists ? (
@@ -50,13 +66,17 @@ function App() {
                 const newList = lists.filter(item => item.id === id);
                 setLists(newList);
               }}
+              onClickItem={item => {
+                setActiveItem(item);
+              }}
+              activeItem={activeItem}
               isRemovable
             />
           ) : ('Loading...')}
           <AddButtonList onAdd={onAddList} />
       </div>
       <div className="todo__tasks">
-        {lists && <Tasks list={lists[0]}/>}
+        {lists && activeItem && <Tasks list={activeItem} onEditTitle={onEditListTitle} />}
       </div>
     </div>
   );
