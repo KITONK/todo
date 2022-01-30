@@ -4,8 +4,9 @@ import check from '../../assets/img/check.png';
 import axios from 'axios';
 
 import './Tasks.css';
+import AddTaskForm from './AddTaskForm';
 
-const Tasks = ({list, onEditTitle}) => {
+const Tasks = ({list, onEditTitle, onAddTask}) => {
 
     const editTitle = () => {
         const newTitle = window.prompt('List title', list.name);
@@ -37,7 +38,7 @@ const Tasks = ({list, onEditTitle}) => {
               <div className="tasks__items">
                   {!list.tasks.length && <h2>No tasks yet</h2>}
                   {list.tasks.map(task =>
-                        <div key={task.id} className="tasks__items-row">
+                    <div key={task.id} className="tasks__items-row">
                         <div className="checkbox">
                                 <input id={`task-${task.id}`} type="checkbox" />
                                 <label htmlFor={`task-${task.id}`}>
@@ -47,6 +48,7 @@ const Tasks = ({list, onEditTitle}) => {
                         <input readOnly value={task.text}/>
                     </div>
                     )}
+                    <AddTaskForm list={list} onAddTask={onAddTask} />
               </div>
           </div>
         </div>
