@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
 import close from '../../assets/img/close.png';
+import axios from 'axios';
 
 import './AddButtonList.css';
 
-const AddButtonList = ({onAdd}) => {
-
+const AddButtonList = ({onAdd}) => { 
     const [visiblePopup, setVisiblePopup] = useState(false);
     const [inputValue, setInputValue] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
     const onClose = () => {
         setVisiblePopup(false);
@@ -18,8 +19,18 @@ const AddButtonList = ({onAdd}) => {
             alert('Enter list name');
             return;
         }
-        onAdd({id: Math.random(), name: inputValue});
-        onClose();
+        setIsLoading(true);
+        axios.post('http://localhost:3001/lists', {
+            name: inputValue
+        })
+        .then(({data}) =>{
+            const listObj = {...data};
+            onAdd(listObj);
+            onClose();
+        })
+        .finally(() => {
+            setIsLoading(false);
+        });
     }
 
     return (
@@ -36,12 +47,9 @@ const AddButtonList = ({onAdd}) => {
                 alt="close"
             />
             <input value={inputValue} onChange={e => setInputValue(e.target.value)} className="field" placeholder="List name"/>
-            {/* <div className="add-list__popup-image">
-                <ul>
-                    <li><i><img src={image} width="20" height="20"/></i></li>
-                </ul>
-            </div> */}
-            <button onClick={addList} className="button">Add</button>
+            <button onClick={addList} className="button">
+                {isLoading ? 'Добавление...' : 'Добавить'}
+            </button>
         </div>
         )}
         </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import './List.css';
+import axios from 'axios';
 
 import remove from '../../assets/img/close.png';
 
@@ -7,7 +8,9 @@ const List = ({items, isRemovable, onClick, onRemove}) => {
 
     const removeList = (item) => {
         if(window.confirm('Are you sure want to delete list?')) {
-            onRemove(item);
+            axios.delete('http://localhost:3001/lists/' + item.id).then(() => {
+                onRemove(item.id);
+            })
         }
     }
 
@@ -15,7 +18,7 @@ const List = ({items, isRemovable, onClick, onRemove}) => {
         <ul onClick={onClick} className="list">
         {items.map((item, index) => (
             <li key={index} className={item.active ? 'active' : ''}>
-                <i>{item.icon}</i>
+                {/* <i>{item.icon}</i> */}
                 <span>{item.name}</span>
                 {isRemovable && (
                     <img 

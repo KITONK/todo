@@ -10,6 +10,7 @@
   position: relative;
   left: 0;
   display: flex;
+  height: 86.2vh;
 }
 
 .todo__sidebar {
@@ -57,7 +58,7 @@
 
 .todo__tasks {
   flex: 1;
-  padding: 60px;
+  padding: 64px;
   background-color: #eeeeee;
   height: 100%;
 }
