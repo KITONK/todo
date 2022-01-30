@@ -25,6 +25,16 @@ function App() {
     setLists(newList);
   };
 
+  const onAddTask = (listId, taskObj) => {
+    const newList = lists.map(item => {
+      if(item.id === listId) {
+        item.tasks = [...item.tasks, taskObj];
+      }
+      return item;
+    });
+    setLists(newList);
+  };
+
   const onEditListTitle = (id, title) => {
     const newList = lists.map(item => {
       if(item.id === id) {
@@ -51,6 +61,7 @@ function App() {
           </li>
         </ul>
         <input className="todo__search" placeholder="Search..."/>
+          {listsconstant ? (
           <List
             items={listsconstant}
             onClickItem={item => {
@@ -58,6 +69,7 @@ function App() {
             }}
             activeItem={activeItem}
           />
+          ) : ('Loading...')}
         <hr style={{marginTop: "15px", marginBottom: "15px"}}/>
           {lists ? (
             <List
@@ -76,7 +88,13 @@ function App() {
           <AddButtonList onAdd={onAddList} />
       </div>
       <div className="todo__tasks">
-        {lists && activeItem && <Tasks list={activeItem} onEditTitle={onEditListTitle} />}
+        {lists && activeItem && (
+          <Tasks 
+            list={activeItem} 
+            onAddTask={onAddTask} 
+            onEditTitle={onEditListTitle} 
+          />
+        )}
       </div>
     </div>
   );

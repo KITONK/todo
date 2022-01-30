@@ -89,3 +89,32 @@
 .checkbox>img {
     transition: opacity 0.15s ease-in-out;
 }
+
+.tasks__form-new {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.15s ease-in-out;
+}
+
+.tasks__form-new:hover {
+    opacity: 0.8;
+}
+
+.tasks__form-new>span {
+    font-size: 19px;
+    margin-left: 20px;
+}
+
+.tasks__form-new>img {
+    margin-left: 15px;
+}
+
+.tasks__form-block>.button {
+    width: 45%;
+}
+
+.tasks__form-block>.button-cancel {
+    margin-left: 10%;
+}

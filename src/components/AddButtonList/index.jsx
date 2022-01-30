@@ -22,13 +22,13 @@ const AddButtonList = ({onAdd}) => {
         setIsLoading(true);
         axios.post('http://localhost:3001/lists', {
             name: inputValue
-        })
-        .then(({data}) =>{
+        }).then(({data}) =>{
             const listObj = {...data};
             onAdd(listObj);
             onClose();
-        })
-        .finally(() => {
+        }).catch(() => {
+            alert('Error: Adding list');
+        }).finally(() => {
             setIsLoading(false);
         });
     }

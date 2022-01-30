@@ -29,6 +29,12 @@
     cursor: pointer;
 }
 
+.button:disabled, .button:disabled:hover {
+    background: #c4c3c3;
+    border: 1px solid #c4c3c3;
+    color: #747373;
+}
+
 .button:hover, .button:active {
     color: #fff;
     border: 1px solid #fff;
