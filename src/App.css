@@ -10,7 +10,8 @@
   position: relative;
   left: 0;
   display: flex;
-  height: 86.2vh;
+  width: 100vw;
+  height: calc(100vh - 128px);
 }
 
 .todo__sidebar {
@@ -61,6 +62,7 @@
   padding: 64px;
   background-color: #eeeeee;
   height: 100%;
+  overflow: auto; 
 }
 
 .menu {

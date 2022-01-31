@@ -1,12 +1,12 @@
 import React from 'react';
 import alarm from '../../assets/img/notification.png';
-import check from '../../assets/img/check.png';
 import axios from 'axios';
 
 import './Tasks.css';
 import AddTaskForm from './AddTaskForm';
+import Task from './Task';
 
-const Tasks = ({list, onEditTitle, onAddTask}) => {
+const Tasks = ({list, onEditTitle, onAddTask, withoutEmpty, onEditTask, onRemoveTask, onComplateTask}) => {
 
     const editTitle = () => {
         const newTitle = window.prompt('List title', list.name);
@@ -36,19 +36,18 @@ const Tasks = ({list, onEditTitle, onAddTask}) => {
               </h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing<br/> elit, aliquam.</p>
               <div className="tasks__items">
-                  {!list.tasks.length && <h2>No tasks yet</h2>}
-                  {list.tasks.map(task =>
-                    <div key={task.id} className="tasks__items-row">
-                        <div className="checkbox">
-                                <input id={`task-${task.id}`} type="checkbox" />
-                                <label htmlFor={`task-${task.id}`}>
-                                    <img src={check} width="10" height="10" alt='check'/>
-                                </label>
-                        </div>
-                        <input readOnly value={task.text}/>
-                    </div>
+                  {!withoutEmpty && list.tasks && !list.tasks.length && <h2>No tasks yet</h2>}
+                  {list.tasks && list.tasks.map(task =>
+                    <Task 
+                        key={task.id} 
+                        list={list} 
+                        onEdit={onEditTask} 
+                        onRemove={onRemoveTask} 
+                        onComplete={onComplateTask}
+                        {...task} 
+                    />
                     )}
-                    <AddTaskForm list={list} onAddTask={onAddTask} />
+                    <AddTaskForm key={list.id} list={list} onAddTask={onAddTask} />
               </div>
           </div>
         </div>
